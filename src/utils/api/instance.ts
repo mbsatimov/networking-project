@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 export const $api = axios.create({
-  baseURL: 'http://localhost:8080/api/v1',
+  baseURL: 'https://mclass.uz/api/v1',
   withCredentials: true,
 });

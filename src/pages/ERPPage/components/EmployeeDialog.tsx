@@ -1,3 +1,5 @@
+import { Plus } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -12,7 +14,9 @@ import { EmployeeForm } from './EmployeeForm';
 export const EmployeeDialog = () => (
   <Dialog>
     <DialogTrigger asChild>
-      <Button>Add employee</Button>
+      <Button size="icon">
+        <Plus />
+      </Button>
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>

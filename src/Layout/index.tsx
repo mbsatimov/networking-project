@@ -1,12 +1,14 @@
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '@/components/Header';
+import { Header } from '@/components/Sidebar';
 
 const Layout = () => (
-  <>
+  <div className="flex">
     <Header />
-    <Outlet />
-  </>
+    <div className="flex-1 pt-20">
+      <Outlet />
+    </div>
+  </div>
 );
 
 export default Layout;

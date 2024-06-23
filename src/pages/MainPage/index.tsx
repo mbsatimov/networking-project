@@ -19,21 +19,22 @@ const links = [
 ];
 
 export const MainPage = () => (
-  <div className="h-full">
-    <div className="container py-6">
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))] gap-4">
-        {links.map((link) => (
-          <Link to={link.path}>
-            <Card
-              key={link.path}
-              className=""
-            >
-              <CardHeader>{link.title}</CardHeader>
-              <CardFooter>{link.path}</CardFooter>
-            </Card>
-          </Link>
-        ))}
-      </div>
+  <div>
+    <div className="container flex flex-col items-center gap-4 space-y-4">
+      {links.map((link) => (
+        <Link
+          to={link.path}
+          className="block w-full max-w-[400px]"
+        >
+          <Card
+            key={link.path}
+            className=""
+          >
+            <CardHeader>{link.title}</CardHeader>
+            <CardFooter>{link.path}</CardFooter>
+          </Card>
+        </Link>
+      ))}
     </div>
   </div>
 );

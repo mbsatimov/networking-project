@@ -10,7 +10,7 @@ type MenuItemProps = {
 export const MenuItem: FC<MenuItemProps> = ({ isActive, link, title }) => (
   <Link
     to={link}
-    className={isActive ? '' : 'text-muted-foreground'}
+    className={isActive ? 'text-primary' : 'text-muted-foreground'}
   >
     {title}
   </Link>

@@ -1,3 +1,5 @@
+import { Plus } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -12,7 +14,9 @@ import { CustomerForm } from './CustomerForm';
 export const CustomerDialog = () => (
   <Dialog>
     <DialogTrigger asChild>
-      <Button>Add customer</Button>
+      <Button size="icon">
+        <Plus />
+      </Button>
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>

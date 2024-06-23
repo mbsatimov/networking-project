@@ -1,6 +1,6 @@
 export const siteTabs = [
   {
-    name: 'Home',
+    name: 'Main',
     path: '/',
   },
   {

@@ -1,26 +1,26 @@
 import { Link } from 'react-router-dom';
 
-import { Card, CardFooter, CardHeader } from '@/components/ui/card';
+import { Card, CardHeader } from '@/components/ui/card';
 import { PUBLIC_ROUTE } from '@/utils/constants';
 
 const links = [
   {
-    title: 'WMS',
+    title: 'Warehouse Management System',
     path: PUBLIC_ROUTE.WMS,
   },
   {
-    title: 'ERP',
+    title: 'Enterprise Resource Planning',
     path: PUBLIC_ROUTE.ERP,
   },
   {
-    title: 'CRM',
+    title: 'Customer Relationship Management',
     path: PUBLIC_ROUTE.CRM,
   },
 ];
 
 export const MainPage = () => (
   <div>
-    <div className="container flex flex-col items-center gap-4 space-y-4">
+    <div className="container flex flex-wrap gap-4">
       {links.map((link) => (
         <Link
           to={link.path}
@@ -31,7 +31,6 @@ export const MainPage = () => (
             className=""
           >
             <CardHeader>{link.title}</CardHeader>
-            <CardFooter>{link.path}</CardFooter>
           </Card>
         </Link>
       ))}

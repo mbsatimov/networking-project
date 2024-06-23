@@ -8,7 +8,7 @@ export const Header = () => {
   const { pathname } = useLocation();
 
   return (
-    <header className="h-screen w-[240px] border-r p-10">
+    <header className="h-screen w-[300px] border-r bg-primary/20 p-10 text-primary-foreground">
       <ul className="space-y-8 text-2xl">
         {siteTabs.map((tab) => (
           <li key={tab.path}>

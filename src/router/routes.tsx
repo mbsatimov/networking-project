@@ -1,7 +1,7 @@
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
-import { MainPage } from '@/pages';
+import { ERPPage, MainPage, SRMPage, WMSPage } from '@/pages';
 import { PUBLIC_ROUTE } from '@/utils/constants';
 
 export const publicRoutes: RouteObject[] = [
@@ -12,6 +12,18 @@ export const publicRoutes: RouteObject[] = [
       {
         index: true,
         element: <MainPage />,
+      },
+      {
+        path: PUBLIC_ROUTE.WMS,
+        element: <WMSPage />,
+      },
+      {
+        path: PUBLIC_ROUTE.ERP,
+        element: <ERPPage />,
+      },
+      {
+        path: PUBLIC_ROUTE.CRM,
+        element: <SRMPage />,
       },
       {
         path: '*',

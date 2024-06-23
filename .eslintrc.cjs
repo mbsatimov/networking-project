@@ -42,6 +42,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'import/prefer-default-export': 0,
     'import/extensions': 0,
+    'jsx-a11y/heading-has-content': 0,
     'react/function-component-definition': [
       2,
       {

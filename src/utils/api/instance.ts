@@ -1,6 +1,48 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable @typescript-eslint/return-await */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import axios from 'axios';
 
+import { LOCAL_STORAGE_KEY } from '@/utils/constants';
+
 export const $api = axios.create({
-  baseURL: 'http://176.117.79.51:8090/api/v1',
   withCredentials: true,
+  baseURL: import.meta.env.VITE_API_URL as string,
 });
+
+$api.interceptors.request.use((config) => {
+  config.headers.Authorization = `Bearer ${localStorage.getItem(LOCAL_STORAGE_KEY.TOKEN)}`;
+
+  return config;
+});
+
+$api.interceptors.response.use(
+  (config) => config,
+  async (error) => {
+    const originalRequest = error.config;
+
+    if (error.response.status === 401 && error.config && !originalRequest._isRetry) {
+      originalRequest._isRetry = true;
+
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/refresh`, {
+          withCredentials: true,
+        });
+
+        localStorage.setItem(LOCAL_STORAGE_KEY.TOKEN, response.data.accessToken);
+
+        return $api.request(originalRequest);
+      } catch {
+        localStorage.removeItem(LOCAL_STORAGE_KEY.TOKEN);
+        window.location.pathname = '/login';
+      }
+    }
+
+    if (error?.response?.data) throw error.response.data;
+
+    throw error;
+  },
+);

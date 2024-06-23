@@ -1,7 +1,7 @@
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
-import Layout from '@/Layout';
+import { Layout } from '@/layout';
 import { ERPPage, MainPage, SRMPage, WMSPage } from '@/pages';
 import { PUBLIC_ROUTE } from '@/utils/constants';
 

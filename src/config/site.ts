@@ -1,18 +1,14 @@
 export const siteTabs = [
   {
-    name: 'Main',
-    path: '/',
+    name: 'Gen constructor',
+    path: '/gen-constructor',
   },
   {
-    name: 'WMS',
-    path: '/wms',
+    name: 'Set constructor',
+    path: '/set-constructor',
   },
   {
-    name: 'ERP',
-    path: '/erp',
-  },
-  {
-    name: 'CRM',
-    path: '/crm',
+    name: 'Project manager',
+    path: '/project-manager',
   },
 ];

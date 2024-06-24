@@ -1,5 +1,3 @@
-'use client';
-
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -12,10 +10,10 @@ import {
 import { Input } from '@/components/ui/input';
 import { PhoneInput } from '@/components/ui/phone-input';
 
-import { useCustomerForm } from './hooks';
+import { useLoginForm } from './hooks';
 
-export const CustomerForm = () => {
-  const { state, form, functions } = useCustomerForm();
+export const LoginForm = () => {
+  const { state, form, functions } = useLoginForm();
 
   return (
     <Form {...form}>
@@ -25,40 +23,10 @@ export const CustomerForm = () => {
       >
         <FormField
           control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>First name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Enter first name"
-                  {...field}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="surname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Last name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Enter last name"
-                  {...field}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="phoneNumber"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Seller Phone</FormLabel>
+              <FormLabel>Phone</FormLabel>
               <FormControl>
                 <PhoneInput
                   placeholder="Enter phone"
@@ -69,11 +37,26 @@ export const CustomerForm = () => {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter password"
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
         <Button
           type="submit"
           isLoading={state.loading}
         >
-          Save
+          Login
         </Button>
       </form>
     </Form>

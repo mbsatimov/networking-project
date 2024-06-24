@@ -1,6 +1,10 @@
-export const PUBLIC_ROUTE = {
+export const PRIVATE_ROUTE = {
   HOME: '/',
-  WMS: '/wms',
-  CRM: '/crm',
-  ERP: '/erp',
+  SUB_CONTRACTORS: '/sub-contractors',
+  PROJECT_MANAGERS: '/project-managers',
+  TASKS: '/tasks',
+};
+
+export const PUBLIC_ROUTE = {
+  LOGIN: '/login',
 };

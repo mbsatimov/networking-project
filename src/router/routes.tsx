@@ -2,13 +2,13 @@ import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
 import { Layout } from '@/layout';
-import { ERPPage, MainPage, SRMPage, WMSPage } from '@/pages';
-import { PUBLIC_ROUTE } from '@/utils/constants';
+import { MainPage, WMSPage } from '@/pages';
+import { LoginPage } from '@/pages/LoginPage';
+import { PRIVATE_ROUTE, PUBLIC_ROUTE } from '@/utils/constants';
 
-export const publicRoutes: RouteObject[] = [
+export const privateRoutes: RouteObject[] = [
   {
-    path: PUBLIC_ROUTE.HOME,
-    errorElement: <Navigate to={PUBLIC_ROUTE.HOME} />,
+    path: PRIVATE_ROUTE.HOME,
     element: <Layout />,
     children: [
       {
@@ -16,20 +16,33 @@ export const publicRoutes: RouteObject[] = [
         element: <MainPage />,
       },
       {
-        path: PUBLIC_ROUTE.WMS,
+        path: PRIVATE_ROUTE.SUB_CONTRACTORS,
         element: <WMSPage />,
       },
       {
-        path: PUBLIC_ROUTE.ERP,
-        element: <ERPPage />,
+        path: PRIVATE_ROUTE.PROJECT_MANAGERS,
+        element: <WMSPage />,
       },
       {
-        path: PUBLIC_ROUTE.CRM,
-        element: <SRMPage />,
+        path: PRIVATE_ROUTE.TASKS,
+        element: <WMSPage />,
       },
       {
         path: '*',
-        element: <Navigate to={PUBLIC_ROUTE.HOME} />,
+        element: <Navigate to={PRIVATE_ROUTE.HOME} />,
+      },
+    ],
+  },
+];
+
+export const publicRoutes: RouteObject[] = [
+  {
+    path: PUBLIC_ROUTE.LOGIN,
+    element: <LoginPage />,
+    children: [
+      {
+        path: '*',
+        element: <Navigate to={PUBLIC_ROUTE.LOGIN} />,
       },
     ],
   },

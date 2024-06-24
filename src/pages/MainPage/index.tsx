@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
 
 import { Card, CardFooter, CardHeader } from '@/components/ui/card';
-import { PUBLIC_ROUTE } from '@/utils/constants';
+import { PRIVATE_ROUTE } from '@/utils/constants';
 
 const links = [
   {
-    title: 'WMS',
-    path: PUBLIC_ROUTE.WMS,
+    title: 'Sub-Contractors',
+    path: PRIVATE_ROUTE.SUB_CONTRACTORS,
   },
   {
-    title: 'ERP',
-    path: PUBLIC_ROUTE.ERP,
+    title: 'Project Managers',
+    path: PRIVATE_ROUTE.PROJECT_MANAGERS,
   },
   {
-    title: 'CRM',
-    path: PUBLIC_ROUTE.CRM,
+    title: 'Tasks',
+    path: PRIVATE_ROUTE.TASKS,
   },
 ];
 
@@ -26,10 +26,7 @@ export const MainPage = () => (
           to={link.path}
           className="block w-full max-w-[400px]"
         >
-          <Card
-            key={link.path}
-            className=""
-          >
+          <Card key={link.path}>
             <CardHeader>{link.title}</CardHeader>
             <CardFooter>{link.path}</CardFooter>
           </Card>

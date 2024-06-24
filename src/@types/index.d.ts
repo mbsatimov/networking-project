@@ -1,3 +1,15 @@
+interface User {
+  id: number;
+  name: string;
+  phoneNumber: string;
+}
+
+interface GenContractor extends User {}
+
+interface SubContractor extends User {}
+
+interface ProjectManager extends User {}
+
 interface Product {
   id: number;
   name: string;

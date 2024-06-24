@@ -11,7 +11,7 @@ const privateRouter = createBrowserRouter(privateRoutes);
 
 const App = () => {
   const isLoggedIn = localStorage.getItem(LOCAL_STORAGE_KEY.TOKEN);
-  const router = isLoggedIn ? privateRouter : publicRouter;
+  const router = true ? privateRouter : publicRouter;
 
   return (
     <QueryClientProvider client={queryClient}>

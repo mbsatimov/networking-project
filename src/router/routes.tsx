@@ -2,8 +2,7 @@ import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
 import { Layout } from '@/layout';
-import { MainPage, WMSPage } from '@/pages';
-import { LoginPage } from '@/pages/LoginPage';
+import { GenContractorPage, LoginPage, MainPage, SubContractorPage, WMSPage } from '@/pages';
 import { PRIVATE_ROUTE, PUBLIC_ROUTE } from '@/utils/constants';
 
 export const privateRoutes: RouteObject[] = [
@@ -16,20 +15,16 @@ export const privateRoutes: RouteObject[] = [
         element: <MainPage />,
       },
       {
+        path: PRIVATE_ROUTE.GEN_CONTRACTORS,
+        element: <GenContractorPage />,
+      },
+      {
         path: PRIVATE_ROUTE.SUB_CONTRACTORS,
-        element: <WMSPage />,
+        element: <SubContractorPage />,
       },
       {
         path: PRIVATE_ROUTE.PROJECT_MANAGERS,
         element: <WMSPage />,
-      },
-      {
-        path: PRIVATE_ROUTE.TASKS,
-        element: <WMSPage />,
-      },
-      {
-        path: '*',
-        element: <Navigate to={PRIVATE_ROUTE.HOME} />,
       },
     ],
   },

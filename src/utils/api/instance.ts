@@ -10,7 +10,7 @@ import { LOCAL_STORAGE_KEY } from '@/utils/constants';
 
 export const $api = axios.create({
   withCredentials: true,
-  baseURL: import.meta.env.VITE_API_URL as string,
+  baseURL: 'http://localhost:8090/api/v1/',
 });
 
 $api.interceptors.request.use((config) => {

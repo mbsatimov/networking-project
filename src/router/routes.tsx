@@ -2,7 +2,13 @@ import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
 import { Layout } from '@/layout';
-import { GenContractorPage, LoginPage, MainPage, SubContractorPage, WMSPage } from '@/pages';
+import {
+  GenContractorPage,
+  LoginPage,
+  MainPage,
+  ProjectManagerPage,
+  SubContractorPage,
+} from '@/pages';
 import { PRIVATE_ROUTE, PUBLIC_ROUTE } from '@/utils/constants';
 
 export const privateRoutes: RouteObject[] = [
@@ -24,7 +30,7 @@ export const privateRoutes: RouteObject[] = [
       },
       {
         path: PRIVATE_ROUTE.PROJECT_MANAGERS,
-        element: <WMSPage />,
+        element: <ProjectManagerPage />,
       },
     ],
   },

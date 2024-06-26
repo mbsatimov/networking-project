@@ -1,8 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { useGetSubContractorsQuery } from '@/utils/api';
 
-import { SubContractorTable } from './components';
-import { GenContractorDialog } from './components/GenContractorDialog';
+import { SubContractorDialog, SubContractorTable } from './components';
 
 export const GenContractorPage = () => {
   const subContractors = useGetSubContractorsQuery();
@@ -19,7 +18,7 @@ export const GenContractorPage = () => {
     <div className="py-6">
       <div className="container space-y-4">
         <h1 className="text-3xl font-bold">Sub-Contractors</h1>
-        <GenContractorDialog />
+        <SubContractorDialog />
         <Card>
           <SubContractorTable data={subContractors.data.data} />
         </Card>

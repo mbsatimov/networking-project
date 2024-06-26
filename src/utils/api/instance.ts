@@ -10,11 +10,13 @@ import { LOCAL_STORAGE_KEY } from '@/utils/constants';
 
 export const $api = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:8090/api/v1/',
+  baseURL: 'http://localhost:8080/api/v1/',
 });
 
 $api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem(LOCAL_STORAGE_KEY.TOKEN)}`;
+  const token = localStorage.getItem(LOCAL_STORAGE_KEY.TOKEN);
+  if (!token) return config;
+  config.headers.Authorization = `Bearer ${token}`;
 
   return config;
 });

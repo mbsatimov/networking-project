@@ -1,2 +1,2 @@
-export * from './GenContractorDialog';
-export * from './GenContractorTable';
+export * from './SubContractorDialog';
+export * from './SubContractorTable';

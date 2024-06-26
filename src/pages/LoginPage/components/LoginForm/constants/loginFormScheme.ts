@@ -8,7 +8,7 @@ export const loginFormScheme = () =>
       .refine((val) => val.startsWith('+998'), {
         message: 'Phone number must start with +998.',
       }),
-    password: z.string().min(8, 'Password must be at least 8 characters'),
+    password: z.string().min(5, 'Password must be at least 5 characters'),
   });
 
 export type LoginFormScheme = z.infer<ReturnType<typeof loginFormScheme>>;

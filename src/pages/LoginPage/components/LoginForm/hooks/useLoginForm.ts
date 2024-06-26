@@ -1,8 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { usePostLoginMutation } from '@/utils/api';
+import { LOCAL_STORAGE_KEY } from '@/utils/constants';
 
 import { LoginFormScheme, loginFormScheme } from '../constants';
 
@@ -17,11 +19,15 @@ export const useLoginForm = () => {
 
   const queryClient = useQueryClient();
 
+  const navigate = useNavigate();
+
   const postLoginMutation = usePostLoginMutation({
     options: {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        localStorage.setItem(LOCAL_STORAGE_KEY.TOKEN, data.data.token);
+        navigate('/');
         queryClient.invalidateQueries({
-          queryKey: ['getUser'],
+          queryKey: ['me'],
         });
         form.reset();
       },

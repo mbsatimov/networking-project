@@ -1,2 +1,2 @@
-export * from './SubContractorDialog';
-export * from './SubContractorTable';
+export * from './ProjectManagerDialog';
+export * from './ProjectManagerTable';

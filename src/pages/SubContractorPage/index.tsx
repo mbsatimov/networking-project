@@ -1,27 +1,26 @@
 import { Card } from '@/components/ui/card';
-import { useGetSubContractorsQuery } from '@/utils/api';
+import { useGetProjectManagersQuery } from '@/utils/api';
 
-import { SubContractorTable } from './components';
-import { SubContractorDialog } from './components/SubContractorDialog';
+import { ProjectManagerDialog, ProjectManagerTable } from './components';
 
 export const SubContractorPage = () => {
-  const subContractors = useGetSubContractorsQuery();
+  const projectManagers = useGetProjectManagersQuery();
 
-  if (subContractors.isLoading) {
+  if (projectManagers.isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (!subContractors.isSuccess) {
+  if (!projectManagers.isSuccess) {
     return <div>Something went wrong</div>;
   }
 
   return (
     <div className="py-6">
       <div className="container space-y-4">
-        <h1 className="text-3xl font-bold">Sub-Contractors</h1>
-        <SubContractorDialog />
+        <h1 className="text-3xl font-bold">Project Managers</h1>
+        <ProjectManagerDialog />
         <Card>
-          <SubContractorTable data={subContractors.data.data} />
+          <ProjectManagerTable data={projectManagers.data.data} />
         </Card>
       </div>
     </div>
